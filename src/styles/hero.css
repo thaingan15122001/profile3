@@ -1037,7 +1037,9 @@ nav.scrolled {
 
 .contact-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.02);
@@ -1046,6 +1048,8 @@ nav.scrolled {
   text-decoration: none;
   transition: all 0.3s;
   cursor: pointer;
+  aspect-ratio: 1;
+  text-align: center;
 }
 
 .contact-card:hover {
@@ -1056,13 +1060,13 @@ nav.scrolled {
 
 .contact-icon {
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  font-size: 1.8rem;
+  border-radius: 12px;
+  font-size: 2rem;
   color: #fff;
   font-weight: 700;
 }
@@ -1072,6 +1076,7 @@ nav.scrolled {
   flex-direction: column;
   gap: 0.4rem;
   flex: 1;
+  width: 100%;
 }
 
 .contact-card-label {
@@ -1095,6 +1100,7 @@ nav.scrolled {
   font-size: 1.2rem;
   color: var(--muted);
   transition: all 0.3s;
+  display: none;
 }
 
 .contact-card:hover .contact-card-arrow {
@@ -1124,6 +1130,12 @@ nav.scrolled {
   }
 }
 
+@media (max-width: 1024px) {
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .contact-title {
     font-size: 2.5rem;
@@ -1141,7 +1153,7 @@ nav.scrolled {
   .contact-icon {
     width: 48px;
     height: 48px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .contact-inner {
