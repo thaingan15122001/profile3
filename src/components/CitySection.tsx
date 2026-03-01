@@ -18,11 +18,12 @@ interface Model {
   views: number;
   tags: string[];
   vip: boolean;
+  image?: string;
 }
 
 const cityModels: Record<string, Model[]> = {
   sg: [
-    { name: 'Mai Linh', age: 22, district: 'Quận 1', price: 16, height: 162, weight: 50, views: 185.4, tags: ['Nhiệt tình', 'Chiều chuộng'], vip: true },
+    { name: 'Mai Linh', age: 22, district: 'Quận 1', price: 16, height: 162, weight: 50, views: 185.4, tags: ['Nhiệt tình', 'Chiều chuộng'], vip: true, image: 'https://pbs.twimg.com/media/HCK99-YaoAAn-jQ?format=jpg&name=large' },
     { name: 'Thùy Tiên', age: 20, district: 'Quận 3', price: 15, height: 165, weight: 52, views: 172.1, tags: ['Tính cảm', 'Lắng nghe'], vip: true },
     { name: 'Hà Mỹ', age: 19, district: 'Quận 10', price: 13.5, height: 160, weight: 48, views: 165.3, tags: ['Hài hước', 'Dễ thương'], vip: true },
     { name: 'Khánh Huyền', age: 23, district: 'Bình Thạnh', price: 13, height: 163, weight: 51, views: 158.9, tags: ['Qua đêm'], vip: false },
@@ -104,7 +105,7 @@ export default function CitySection({ id, cityLabel, cityName, cityNameItalic, c
       return `
         <div class="model-card">
           <div class="card-img-wrap">
-            <div class="card-img-placeholder">${String(index + 1).padStart(2, '0')}</div>
+            ${model.image ? `<img src="${model.image}" alt="${model.name}" class="card-img" />` : `<div class="card-img-placeholder">${String(index + 1).padStart(2, '0')}</div>`}
             ${rank > 0 ? `<div class="badge-rank ${rankClass}">${rank}</div>` : ''}
             ${model.vip ? '<div class="badge-vip">VIP</div>' : ''}
             <div class="card-gradient"></div>
